@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
-import { Shield, Lock } from 'lucide-react'
+import { Shield, Lock } from "lucide-react"
 
 interface LeadCaptureFormProps {
   isOpen: boolean
@@ -41,21 +41,23 @@ export function LeadCaptureForm({ isOpen, onClose }: LeadCaptureFormProps) {
     setIsSubmitting(true)
 
     try {
-      // Send lead data to the server API (keeps secrets on the server)
       const response = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       })
 
+      const result = await response.json()
+
       if (response.ok) {
         setSubmitted(true)
       } else {
-        throw new Error("Server returned an error")
+        console.error("Server error:", result)
+        alert(`Error: ${result.error || "Failed to submit form"}`)
       }
     } catch (error) {
-      console.error("Error submitting form:", error)
-      alert("There was an error submitting your information. Please try again.")
+      console.error("Network error:", error)
+      alert("Network error. Please check your connection and try again.")
     } finally {
       setIsSubmitting(false)
     }
