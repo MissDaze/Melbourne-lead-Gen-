@@ -5,35 +5,48 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { TrendingUp, Shield, MapPin, Building2, Users, Star, CheckCircle, Phone, Mail, Clock } from "lucide-react"
+import {
+  TrendingUp,
+  Shield,
+  MapPin,
+  Building2,
+  Users,
+  Star,
+  CheckCircle,
+  Clock,
+  Award,
+  Target,
+  BarChart3,
+} from "lucide-react"
 import { ROICalculator } from "@/components/roi-calculator"
 import { RentalYieldCalculator } from "@/components/rental-yield-calculator"
 import { RepaymentCalculator } from "@/components/repayment-calculator"
 import { CashFlowCalculator } from "@/components/cash-flow-calculator"
 import { LeadCaptureForm } from "@/components/lead-capture-form"
 
+const dotsPattern =
+  "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")"
+
 export default function MelbournePropertyInvestment() {
   const [showLeadForm, setShowLeadForm] = useState(false)
   const [activeCalculator, setActiveCalculator] = useState("roi")
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Building2 className="h-8 w-8 text-blue-600" />
-              <span className="text-2xl font-bold text-gray-900">Melbourne Property Pro</span>
-            </div>
-            <div className="flex items-center space-x-4 text-sm text-gray-600">
-              <div className="flex items-center space-x-1">
-                <Phone className="h-4 w-4" />
-                <span>1300 PROPERTY</span>
+      <header className="bg-white/95 backdrop-blur-sm shadow-lg border-b border-blue-100 sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex items-center justify-center">
+            <div className="flex items-center space-x-3">
+              <div className="relative">
+                <Building2 className="h-10 w-10 text-blue-600" />
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-orange-400 to-red-400 rounded-full"></div>
               </div>
-              <div className="flex items-center space-x-1">
-                <Mail className="h-4 w-4" />
-                <span>info@melbourneproperty.com.au</span>
+              <div>
+                <span className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                  Melbourne Property Pro
+                </span>
+                <p className="text-sm text-gray-600 font-medium">Commercial Investment Intelligence</p>
               </div>
             </div>
           </div>
@@ -41,109 +54,147 @@ export default function MelbournePropertyInvestment() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-6">Unlock Melbourne's Best Commercial Property Investments</h1>
-          <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-            Get exclusive access to high-yield commercial properties before they hit the market. Join 2,500+ successful
-            investors who trust our Melbourne expertise.
-          </p>
-          <div className="flex justify-center space-x-4 mb-12">
-            <div className="flex items-center space-x-2">
-              <CheckCircle className="h-5 w-5" />
-              <span>15+ Years Experience</span>
+      <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: dotsPattern }}></div>
+        <div className="container mx-auto px-4 text-center relative">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-6xl md:text-7xl font-bold mb-8 leading-tight">
+              Unlock Melbourne's
+              <span className="block bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent">
+                Best Commercial Properties
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto opacity-90 leading-relaxed">
+              Get exclusive access to high-yield commercial properties before they hit the market. Join thousands of
+              successful investors who trust our Melbourne expertise.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-6 mb-16">
+              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
+                <Award className="h-6 w-6 text-orange-400" />
+                <span className="font-semibold">15+ Years Experience</span>
+              </div>
+              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
+                <BarChart3 className="h-6 w-6 text-orange-400" />
+                <span className="font-semibold">$2.5B+ Transacted</span>
+              </div>
+              <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
+                <Target className="h-6 w-6 text-orange-400" />
+                <span className="font-semibold">Melbourne Specialists</span>
+              </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle className="h-5 w-5" />
-              <span>$2.5B+ Transacted</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle className="h-5 w-5" />
-              <span>Melbourne Specialists</span>
-            </div>
+
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-12 py-6 text-xl font-bold rounded-full shadow-2xl hover:shadow-orange-500/25 transform hover:scale-105 transition-all duration-300"
+              onClick={() => setShowLeadForm(true)}
+            >
+              Get Exclusive Property Access Now
+            </Button>
+            <p className="text-sm mt-6 opacity-75">Join 2,500+ investors • No spam • Unsubscribe anytime</p>
           </div>
-          <Button
-            size="lg"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold"
-            onClick={() => setShowLeadForm(true)}
-          >
-            Yes, I Want Access to the Best Properties Before They Go on The Market
-          </Button>
         </div>
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-12 bg-blue-50/30 border-b">
+      <section className="py-20 bg-white/80 backdrop-blur-sm border-b border-gray-100">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div className="flex flex-col items-center">
-              <Shield className="h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="font-semibold text-gray-900">Licensed & Insured</h3>
-              <p className="text-gray-600 text-sm">REIV Member #12345</p>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Shield className="h-10 w-10 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Trusted & Secure</h3>
+              <p className="text-gray-600">Your data is protected with bank-level security</p>
             </div>
-            <div className="flex flex-col items-center">
-              <Users className="h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="font-semibold text-gray-900">2,500+ Investors</h3>
-              <p className="text-gray-600 text-sm">Trust our expertise</p>
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Users className="h-10 w-10 text-white" />
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-2">2,500+ Investors</h3>
+              <p className="text-gray-600">Growing community of successful investors</p>
             </div>
-            <div className="flex flex-col items-center">
-              <TrendingUp className="h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="font-semibold text-gray-900">18.5% Avg ROI</h3>
-              <p className="text-gray-600 text-sm">Client portfolio performance</p>
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <TrendingUp className="h-10 w-10 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">18.5% Avg ROI</h3>
+              <p className="text-gray-600">Outstanding portfolio performance</p>
             </div>
-            <div className="flex flex-col items-center">
-              <MapPin className="h-12 w-12 text-blue-600 mb-4" />
-              <h3 className="font-semibold text-gray-900">Melbourne Focused</h3>
-              <p className="text-gray-600 text-sm">Local market expertise</p>
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <MapPin className="h-10 w-10 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Melbourne Focused</h3>
+              <p className="text-gray-600">Deep local market expertise</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Investment Calculators */}
-      <section className="py-16 bg-slate-100/50">
+      <section className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Professional Investment Calculators</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Make informed decisions with our suite of commercial property investment tools
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 text-sm font-semibold">
+              Professional Tools
+            </Badge>
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">Investment Calculators</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Make informed decisions with our suite of professional commercial property investment tools
             </p>
           </div>
 
-          <div className="flex justify-center mb-8">
-            <div className="flex space-x-2 bg-white p-1 rounded-lg shadow-sm">
+          <div className="flex justify-center mb-12">
+            <div className="flex flex-wrap gap-2 bg-white p-2 rounded-2xl shadow-lg border border-gray-100">
               <Button
                 variant={activeCalculator === "roi" ? "default" : "ghost"}
                 onClick={() => setActiveCalculator("roi")}
-                className="px-6"
+                className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  activeCalculator === "roi"
+                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
+                    : "hover:bg-gray-50"
+                }`}
               >
                 ROI Calculator
               </Button>
               <Button
                 variant={activeCalculator === "yield" ? "default" : "ghost"}
                 onClick={() => setActiveCalculator("yield")}
-                className="px-6"
+                className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  activeCalculator === "yield"
+                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
+                    : "hover:bg-gray-50"
+                }`}
               >
                 Rental Yield
               </Button>
               <Button
                 variant={activeCalculator === "repayment" ? "default" : "ghost"}
                 onClick={() => setActiveCalculator("repayment")}
-                className="px-6"
+                className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  activeCalculator === "repayment"
+                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
+                    : "hover:bg-gray-50"
+                }`}
               >
                 Loan Repayment
               </Button>
               <Button
                 variant={activeCalculator === "cashflow" ? "default" : "ghost"}
                 onClick={() => setActiveCalculator("cashflow")}
-                className="px-6"
+                className={`px-8 py-3 rounded-xl font-semibold transition-all duration-300 ${
+                  activeCalculator === "cashflow"
+                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg"
+                    : "hover:bg-gray-50"
+                }`}
               >
                 Cash Flow
               </Button>
             </div>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             {activeCalculator === "roi" && <ROICalculator />}
             {activeCalculator === "yield" && <RentalYieldCalculator />}
             {activeCalculator === "repayment" && <RepaymentCalculator />}
@@ -153,20 +204,27 @@ export default function MelbournePropertyInvestment() {
       </section>
 
       {/* Articles Section */}
-      <section className="py-16 bg-white/80 backdrop-blur-sm">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Expert Insights & Market Intelligence</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 text-sm font-semibold">
+              Expert Knowledge
+            </Badge>
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">Market Intelligence</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Master commercial property investment with our comprehensive guides and expert strategies
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <Badge className="w-fit mb-2">Essential Guide</Badge>
-                <CardTitle className="text-2xl">10 Red Flags Every Commercial Property Investor Must Know</CardTitle>
+            <Card className="hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-gradient-to-br from-white to-blue-50/30 group">
+              <CardHeader className="pb-4">
+                <Badge className="w-fit mb-4 bg-gradient-to-r from-red-500 to-pink-500 text-white">
+                  Essential Guide
+                </Badge>
+                <CardTitle className="text-2xl font-bold group-hover:text-blue-600 transition-colors">
+                  10 Red Flags Every Commercial Property Investor Must Know
+                </CardTitle>
                 <CardDescription>
                   <div className="flex items-center space-x-2 text-sm text-gray-500">
                     <Clock className="h-4 w-4" />
@@ -175,34 +233,38 @@ export default function MelbournePropertyInvestment() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-600 font-medium">
+                <p className="text-gray-700 font-medium leading-relaxed">
                   Avoid costly mistakes with these critical warning signs that separate successful investors from those
                   who lose money.
                 </p>
 
-                <div className="space-y-3">
-                  <h4 className="font-semibold text-gray-900">1. Declining Tenant Quality and High Turnover</h4>
-                  <p className="text-sm text-gray-700">
-                    When quality tenants consistently leave or you notice a pattern of short-term leases, it's often a
-                    sign of underlying property issues. Look for properties where tenants have been in place for 3+
-                    years and have strong credit ratings. High turnover costs can destroy your returns through vacancy
-                    periods, leasing commissions, and fit-out contributions.
-                  </p>
+                <div className="space-y-4">
+                  <div className="p-4 bg-gradient-to-r from-red-50 to-pink-50 rounded-xl border-l-4 border-red-400">
+                    <h4 className="font-bold text-gray-900 mb-2">1. Declining Tenant Quality and High Turnover</h4>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      When quality tenants consistently leave or you notice a pattern of short-term leases, it's often a
+                      sign of underlying property issues. Look for properties where tenants have been in place for 3+
+                      years and have strong credit ratings.
+                    </p>
+                  </div>
 
-                  <h4 className="font-semibold text-gray-900">2. Deferred Maintenance and Capital Expenditure</h4>
-                  <p className="text-sm text-gray-700">
-                    Properties requiring immediate major repairs are cash traps. Always conduct thorough building
-                    inspections and request maintenance records for the past 5 years. Red flags include: outdated HVAC
-                    systems, roof leaks, electrical issues, or structural problems. Budget 1-2% of property value
-                    annually for maintenance.
-                  </p>
+                  <div className="p-4 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl border-l-4 border-orange-400">
+                    <h4 className="font-bold text-gray-900 mb-2">2. Deferred Maintenance and Capital Expenditure</h4>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Properties requiring immediate major repairs are cash traps. Always conduct thorough building
+                      inspections and request maintenance records for the past 5 years. Budget 1-2% of property value
+                      annually for maintenance.
+                    </p>
+                  </div>
 
-                  <h4 className="font-semibold text-gray-900">3. Unfavorable Lease Terms and Tenant Incentives</h4>
-                  <p className="text-sm text-gray-700">
-                    Excessive tenant incentives, below-market rents, or unusual lease clauses can indicate desperation.
-                    Be wary of properties offering 6+ months free rent, excessive fit-out contributions, or lease terms
-                    heavily favoring tenants. These often mask underlying demand issues.
-                  </p>
+                  <div className="p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border-l-4 border-yellow-400">
+                    <h4 className="font-bold text-gray-900 mb-2">3. Unfavorable Lease Terms</h4>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      Excessive tenant incentives, below-market rents, or unusual lease clauses can indicate
+                      desperation. Be wary of properties offering 6+ months free rent or excessive fit-out
+                      contributions.
+                    </p>
+                  </div>
 
                   <h4 className="font-semibold text-gray-900">4. Poor Location Fundamentals</h4>
                   <p className="text-sm text-gray-700">
@@ -254,23 +316,25 @@ export default function MelbournePropertyInvestment() {
                   </p>
                 </div>
 
-                <div className="bg-blue-50 p-4 rounded-lg mt-6">
-                  <h4 className="font-semibold text-blue-900 mb-2">Key Takeaway</h4>
-                  <p className="text-sm text-blue-800">
-                    Due diligence is your best protection. Never rush into commercial property investments. Take time to
-                    investigate these red flags thoroughly, and when in doubt, consult experienced professionals. The
-                    cost of proper due diligence is always less than the cost of a bad investment.
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200">
+                  <h4 className="font-bold text-blue-900 mb-3 flex items-center">
+                    <CheckCircle className="h-5 w-5 mr-2" />
+                    Key Takeaway
+                  </h4>
+                  <p className="text-sm text-blue-800 leading-relaxed">
+                    Due diligence is your best protection. The cost of proper investigation is always less than the cost
+                    of a bad investment.
                   </p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <Badge className="w-fit mb-2" variant="secondary">
+            <Card className="hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-gradient-to-br from-white to-green-50/30 group">
+              <CardHeader className="pb-4">
+                <Badge className="w-fit mb-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                   Complete Checklist
                 </Badge>
-                <CardTitle className="text-2xl">
+                <CardTitle className="text-2xl font-bold group-hover:text-green-600 transition-colors">
                   The Only Commercial Property Due Diligence Checklist You'll Ever Need
                 </CardTitle>
                 <CardDescription>
@@ -281,101 +345,244 @@ export default function MelbournePropertyInvestment() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-600 font-medium">
+                <p className="text-gray-700 font-medium leading-relaxed">
                   This comprehensive 47-point checklist has been refined over 15 years of commercial property
                   transactions to ensure nothing is missed.
                 </p>
 
                 <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Financial Analysis (Points 1-12)</h4>
-                    <ul className="space-y-1 text-sm text-gray-700 ml-4">
-                      <li>• Verify actual rental income vs. advertised income</li>
-                      <li>• Review 3 years of financial statements and rent rolls</li>
-                      <li>• Calculate net yield after all expenses</li>
-                      <li>• Analyze tenant payment history and arrears</li>
-                      <li>• Review outgoings recovery rates</li>
-                      <li>• Assess capital expenditure requirements</li>
-                      <li>• Compare market rents for similar properties</li>
-                      <li>• Evaluate rental growth potential</li>
-                      <li>• Calculate cash-on-cash returns</li>
-                      <li>• Assess financing options and serviceability</li>
-                      <li>• Review insurance costs and coverage</li>
-                      <li>• Analyze tax implications and depreciation benefits</li>
+                  <div className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border-l-4 border-blue-400">
+                    <h4 className="font-bold text-gray-900 mb-3">Financial Analysis (Points 1-12)</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Verify actual rental income vs. advertised income
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review 3 years of financial statements and rent rolls
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Calculate net yield after all expenses
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Analyze tenant payment history and arrears
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review outgoings recovery rates
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess capital expenditure requirements
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Compare market rents for similar properties
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Evaluate rental growth potential
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Calculate cash-on-cash returns
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess financing options and serviceability
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review insurance costs and coverage
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Analyze tax implications and depreciation benefits
+                      </li>
                     </ul>
                   </div>
 
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Legal and Compliance (Points 13-24)</h4>
-                    <ul className="space-y-1 text-sm text-gray-700 ml-4">
-                      <li>• Verify clear title and ownership</li>
-                      <li>• Review all lease agreements and terms</li>
-                      <li>• Check zoning compliance and permitted uses</li>
-                      <li>• Assess planning permit requirements</li>
-                      <li>• Review building permits and approvals</li>
-                      <li>• Check for any encumbrances or easements</li>
-                      <li>• Verify council rates and land tax obligations</li>
-                      <li>• Review body corporate documents (if applicable)</li>
-                      <li>• Check for any legal disputes or claims</li>
-                      <li>• Assess compliance with disability access requirements</li>
-                      <li>• Review fire safety and emergency procedures</li>
-                      <li>• Verify occupational health and safety compliance</li>
+                  <div className="p-4 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl border-l-4 border-purple-400">
+                    <h4 className="font-bold text-gray-900 mb-3">Legal and Compliance (Points 13-24)</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Verify clear title and ownership
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review all lease agreements and terms
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Check zoning compliance and permitted uses
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess planning permit requirements
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review building permits and approvals
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Check for any encumbrances or easements
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Verify council rates and land tax obligations
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review body corporate documents (if applicable)
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Check for any legal disputes or claims
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess compliance with disability access requirements
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review fire safety and emergency procedures
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Verify occupational health and safety compliance
+                      </li>
                     </ul>
                   </div>
 
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Physical Inspection (Points 25-36)</h4>
-                    <ul className="space-y-1 text-sm text-gray-700 ml-4">
-                      <li>• Conduct comprehensive building inspection</li>
-                      <li>• Assess structural integrity and foundation</li>
-                      <li>• Evaluate roof condition and waterproofing</li>
-                      <li>• Check electrical systems and safety switches</li>
-                      <li>• Assess plumbing and water systems</li>
-                      <li>• Review HVAC systems and efficiency</li>
-                      <li>• Check for asbestos and hazardous materials</li>
-                      <li>• Assess parking adequacy and condition</li>
-                      <li>• Evaluate security systems and access control</li>
-                      <li>• Check lift maintenance and compliance</li>
-                      <li>• Assess energy efficiency and ratings</li>
-                      <li>• Review maintenance schedules and costs</li>
+                  <div className="p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border-l-4 border-green-400">
+                    <h4 className="font-bold text-gray-900 mb-3">Physical Inspection (Points 25-36)</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Conduct comprehensive building inspection
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess structural integrity and foundation
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Evaluate roof condition and waterproofing
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Check electrical systems and safety switches
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess plumbing and water systems
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review HVAC systems and efficiency
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Check for asbestos and hazardous materials
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess parking adequacy and condition
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Evaluate security systems and access control
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Check lift maintenance and compliance
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess energy efficiency and ratings
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review maintenance schedules and costs
+                      </li>
                     </ul>
                   </div>
 
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Market and Location Analysis (Points 37-47)</h4>
-                    <ul className="space-y-1 text-sm text-gray-700 ml-4">
-                      <li>• Analyze local market vacancy rates</li>
-                      <li>• Research comparable sales and leasing</li>
-                      <li>• Assess transport links and accessibility</li>
-                      <li>• Evaluate local amenities and services</li>
-                      <li>• Research planned infrastructure developments</li>
-                      <li>• Assess demographic trends and employment</li>
-                      <li>• Review competition and market positioning</li>
-                      <li>• Evaluate future development potential</li>
-                      <li>• Assess environmental factors and risks</li>
-                      <li>• Review local council development plans</li>
-                      <li>• Analyze long-term area growth prospects</li>
+                  <div className="p-4 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-xl border-l-4 border-yellow-400">
+                    <h4 className="font-bold text-gray-900 mb-3">Market and Location Analysis (Points 37-47)</h4>
+                    <ul className="space-y-2 text-sm text-gray-700">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Analyze local market vacancy rates
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Research comparable sales and leasing
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess transport links and accessibility
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Evaluate local amenities and services
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Research planned infrastructure developments
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess demographic trends and employment
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review competition and market positioning
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Evaluate future development potential
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Assess environmental factors and risks
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Review local council development plans
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                        Analyze long-term area growth prospects
+                      </li>
                     </ul>
                   </div>
                 </div>
 
-                <div className="bg-green-50 p-4 rounded-lg mt-6">
-                  <h4 className="font-semibold text-green-900 mb-2">Professional Tip</h4>
-                  <p className="text-sm text-green-800">
-                    Don't try to complete this checklist alone. Engage qualified professionals including building
-                    inspectors, lawyers, accountants, and property managers. The cost of professional advice is minimal
-                    compared to the risks of missing critical issues.
+                <div className="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border border-green-200">
+                  <h4 className="font-bold text-green-900 mb-3 flex items-center">
+                    <Award className="h-5 w-5 mr-2" />
+                    Professional Tip
+                  </h4>
+                  <p className="text-sm text-green-800 leading-relaxed">
+                    Don't try to complete this checklist alone. The cost of professional advice is minimal compared to
+                    the risks of missing critical issues.
                   </p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <Badge className="w-fit mb-2" variant="outline">
+            <Card className="hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-gradient-to-br from-white to-orange-50/30 group">
+              <CardHeader className="pb-4">
+                <Badge className="w-fit mb-4 bg-gradient-to-r from-orange-500 to-red-500 text-white">
                   Investment Strategy
                 </Badge>
-                <CardTitle className="text-2xl">
+                <CardTitle className="text-2xl font-bold group-hover:text-orange-600 transition-colors">
                   What Makes a Viable Commercial Property Investment: The 8 Essential Criteria
                 </CardTitle>
                 <CardDescription>
@@ -386,7 +593,7 @@ export default function MelbournePropertyInvestment() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-600 font-medium">
+                <p className="text-gray-700 font-medium leading-relaxed">
                   Not all commercial properties are created equal. These 8 criteria separate profitable investments from
                   costly mistakes.
                 </p>
@@ -508,21 +715,25 @@ export default function MelbournePropertyInvestment() {
                   </div>
                 </div>
 
-                <div className="bg-orange-50 p-4 rounded-lg mt-6">
-                  <h4 className="font-semibold text-orange-900 mb-2">Investment Reality Check</h4>
-                  <p className="text-sm text-orange-800">
-                    If a property doesn't meet at least 6 of these 8 criteria, seriously reconsider the investment.
-                    Commercial property success requires discipline and patience. It's better to wait for the right
-                    opportunity than rush into a marginal deal.
+                <div className="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-xl border border-orange-200">
+                  <h4 className="font-bold text-orange-900 mb-3 flex items-center">
+                    <Target className="h-5 w-5 mr-2" />
+                    Investment Reality Check
+                  </h4>
+                  <p className="text-sm text-orange-800 leading-relaxed">
+                    If a property doesn't meet at least 6 of these 8 criteria, seriously reconsider the investment. It's
+                    better to wait for the right opportunity.
                   </p>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <Badge className="w-fit mb-2">Avoid These Mistakes</Badge>
-                <CardTitle className="text-2xl">
+            <Card className="hover:shadow-2xl transition-all duration-500 border-0 shadow-lg bg-gradient-to-br from-white to-red-50/30 group">
+              <CardHeader className="pb-4">
+                <Badge className="w-fit mb-4 bg-gradient-to-r from-red-500 to-pink-500 text-white">
+                  Avoid These Mistakes
+                </Badge>
+                <CardTitle className="text-2xl font-bold group-hover:text-red-600 transition-colors">
                   Don't Make These 15 Common Commercial Property Investment Mistakes
                 </CardTitle>
                 <CardDescription>
@@ -533,7 +744,7 @@ export default function MelbournePropertyInvestment() {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-600 font-medium">
+                <p className="text-gray-700 font-medium leading-relaxed">
                   Learn from others' expensive mistakes. These 15 errors have cost investors millions and can be easily
                   avoided with proper knowledge.
                 </p>
@@ -680,12 +891,14 @@ export default function MelbournePropertyInvestment() {
                   </div>
                 </div>
 
-                <div className="bg-red-50 p-4 rounded-lg mt-6">
-                  <h4 className="font-semibold text-red-900 mb-2">Final Warning</h4>
-                  <p className="text-sm text-red-800">
-                    Commercial property investment can be highly rewarding but is unforgiving of mistakes. Take time to
-                    educate yourself, build the right team, and approach each investment with discipline and patience.
-                    The cost of making these mistakes far exceeds the cost of avoiding them.
+                <div className="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-xl border border-red-200">
+                  <h4 className="font-bold text-red-900 mb-3 flex items-center">
+                    <Shield className="h-5 w-5 mr-2" />
+                    Final Warning
+                  </h4>
+                  <p className="text-sm text-red-800 leading-relaxed">
+                    Commercial property investment is unforgiving of mistakes. The cost of making these errors far
+                    exceeds the cost of avoiding them.
                   </p>
                 </div>
               </CardContent>
@@ -695,77 +908,81 @@ export default function MelbournePropertyInvestment() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-blue-50/40">
+      <section className="py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Investors Say</h2>
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white px-4 py-2 text-sm font-semibold">
+              Success Stories
+            </Badge>
+            <h2 className="text-5xl font-bold text-gray-900 mb-6">What Our Investors Say</h2>
+            <p className="text-xl text-gray-600">Real results from real investors</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="bg-white">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
+            <Card className="bg-white hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-700 mb-6 leading-relaxed font-medium">
                   "Melbourne Property Pro helped me acquire a $2.8M industrial property in Dandenong. The ROI has
                   exceeded expectations at 22% in the first year."
                 </p>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-blue-600 font-semibold">JC</span>
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-lg">JC</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">James Chen</p>
-                    <p className="text-sm text-gray-600">Property Developer</p>
+                    <p className="font-bold text-gray-900 text-lg">James Chen</p>
+                    <p className="text-gray-600">Property Developer</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-white">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
+            <Card className="bg-white hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-700 mb-6 leading-relaxed font-medium">
                   "Their market insights are invaluable. I've built a $15M commercial portfolio with their guidance over
                   the past 3 years."
                 </p>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-blue-600 font-semibold">SM</span>
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-lg">SM</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Sarah Mitchell</p>
-                    <p className="text-sm text-gray-600">Investment Manager</p>
+                    <p className="font-bold text-gray-900 text-lg">Sarah Mitchell</p>
+                    <p className="text-gray-600">Investment Manager</p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="bg-white">
-              <CardContent className="p-6">
-                <div className="flex items-center mb-4">
+            <Card className="bg-white hover:shadow-2xl transition-all duration-500 border-0 shadow-lg">
+              <CardContent className="p-8">
+                <div className="flex items-center mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-700 mb-6 leading-relaxed font-medium">
                   "Professional, knowledgeable, and results-driven. They found me an off-market office building that's
                   now my best performing asset."
                 </p>
                 <div className="flex items-center">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-blue-600 font-semibold">RP</span>
+                  <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-lg">RP</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Robert Patel</p>
-                    <p className="text-sm text-gray-600">Business Owner</p>
+                    <p className="font-bold text-gray-900 text-lg">Robert Patel</p>
+                    <p className="text-gray-600">Business Owner</p>
                   </div>
                 </div>
               </CardContent>
@@ -775,69 +992,83 @@ export default function MelbournePropertyInvestment() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Access Melbourne's Best Commercial Properties?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Join our exclusive network and get first access to high-yield commercial properties before they're
-            advertised to the public.
-          </p>
-          <Button
-            size="lg"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold"
-            onClick={() => setShowLeadForm(true)}
-          >
-            Yes, I Want Access to the Best Properties Before They Go on The Market
-          </Button>
-          <p className="text-sm mt-4 opacity-75">No spam. Unsubscribe anytime. Your information is secure.</p>
+      <section className="py-24 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20" style={{ backgroundImage: dotsPattern }}></div>
+        <div className="container mx-auto px-4 text-center relative">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-5xl md:text-6xl font-bold mb-8">
+              Ready to Access Melbourne's Best Commercial Properties?
+            </h2>
+            <p className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto opacity-90 leading-relaxed">
+              Join our exclusive network and get first access to high-yield commercial properties before they're
+              advertised to the public.
+            </p>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white px-12 py-6 text-xl font-bold rounded-full shadow-2xl hover:shadow-orange-500/25 transform hover:scale-105 transition-all duration-300"
+              onClick={() => setShowLeadForm(true)}
+            >
+              Get Exclusive Property Access Now
+            </Button>
+            <p className="text-sm mt-6 opacity-75">No spam • Unsubscribe anytime • Your information is secure</p>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-gray-900 text-white py-16">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Building2 className="h-6 w-6 text-blue-400" />
-                <span className="text-xl font-bold">Melbourne Property Pro</span>
+              <div className="flex items-center space-x-3 mb-6">
+                <div className="relative">
+                  <Building2 className="h-8 w-8 text-blue-400" />
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-orange-400 to-red-400 rounded-full"></div>
+                </div>
+                <div>
+                  <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">
+                    Melbourne Property Pro
+                  </span>
+                  <p className="text-sm text-gray-400">Commercial Investment Intelligence</p>
+                </div>
               </div>
-              <p className="text-gray-400 text-sm">
-                Melbourne's trusted commercial property investment specialists. Helping investors build wealth through
-                strategic property acquisitions.
+              <p className="text-gray-400 leading-relaxed max-w-md">
+                Connecting serious commercial property investors with Melbourne's best opportunities through expert
+                market intelligence and exclusive access.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>Commercial Property Sales</li>
-                <li>Investment Analysis</li>
-                <li>Market Research</li>
-                <li>Portfolio Management</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Property Types</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>Office Buildings</li>
-                <li>Industrial Properties</li>
-                <li>Retail Spaces</li>
-                <li>Mixed-Use Developments</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
-                <li>Level 15, 123 Collins Street</li>
-                <li>Melbourne VIC 3000</li>
-                <li>Phone: 1300 PROPERTY</li>
-                <li>Email: info@melbourneproperty.com.au</li>
-              </ul>
+              <h4 className="font-bold mb-6 text-xl">Property Focus Areas</h4>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-3 text-gray-400">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                    <span>Office Buildings</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                    <span>Industrial Properties</span>
+                  </div>
+                </div>
+                <div className="space-y-3 text-gray-400">
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+                    <span>Retail Spaces</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
+                    <span>Mixed-Use Developments</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <Separator className="my-8 bg-gray-700" />
-          <div className="text-center text-sm text-gray-400">
-            <p>&copy; 2024 Melbourne Property Pro. All rights reserved. REIV Member #12345</p>
+          <Separator className="my-12 bg-gray-700" />
+          <div className="text-center text-gray-400">
+            <p>&copy; 2024 Melbourne Property Pro. All rights reserved.</p>
+            <p className="text-sm mt-2 opacity-75">
+              Professional lead generation service connecting investors with opportunities
+            </p>
           </div>
         </div>
       </footer>
